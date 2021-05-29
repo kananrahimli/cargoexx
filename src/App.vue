@@ -1,28 +1,61 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header @open="openMenu" @close="closeMenu" :isBool="isBool"/>
+    <Carousel />
+    <Main />
+    <Contact />
+    <partners></partners>
+    <Mobile :isBool="isBool" @close="closeMenu"></Mobile>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from "./components/Header.vue";
+import Carousel from "./components/Carousel.vue";
+import Main from "./components/Main.vue";
+import Contact from "./components/Contact.vue";
+import Partners from "./components/Partners.vue";
+import Mobile from "./components/Mobile.vue";
+import Footer from './components/Footer.vue'
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Header,
+    Carousel,
+    Main,
+    Contact,
+    Partners,
+    Mobile,
+    Footer
+  },
+  data(){
+    return{
+      isBool:false
+    }
+  },
+  methods:{
+    openMenu(){
+      this.isBool=true
+    },
+    closeMenu(){
+      this.isBool=false 
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped >
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
+
+html{
+  scroll-behavior: smooth;
+}
+
+
 </style>

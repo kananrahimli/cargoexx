@@ -1,4 +1,4 @@
-# cargoexx
+# cargoex
 
 ## Project setup
 ```
