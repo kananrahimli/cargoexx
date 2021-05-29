@@ -205,7 +205,7 @@ h3 img{
     font-weight: 900;
     position: absolute;
     left: 50%;
-    bottom: 110%;
+    bottom: 100%;
     transform: translate(-50%, 50%);
   }
 }
