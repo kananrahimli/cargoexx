@@ -138,8 +138,9 @@ h3 {
   position: relative;
   display: inline;
 }
-
-
+.admin{
+  position: relative;
+}
 li:nth-child(even) div {
   float: right;
 }
