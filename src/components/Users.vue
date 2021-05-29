@@ -1,7 +1,8 @@
 <template>
   <li class="my-5 user py-5">
     <div v-for="(user, index) in featuresUsers" :key="index">
-      <div class="col-md-7" v-if="currentIndex == index">
+      <transition name="fade">
+        <div class="col-md-7" v-if="currentIndex == index">
         <img src="../assets/featuresUsers.svg" alt="" />
         <img
           :src="require('../assets/image/' + user.img + '.jpg')"
@@ -9,8 +10,10 @@
           class="img1"
         />
       </div>
-
-      <div
+      </transition>
+      
+      <transition name="fade">
+        <div
         class="col-md-3 d-flex flex-column mt-5 pt-4 text-md-left text-center "
         v-if="currentIndex == index"
       >
@@ -27,6 +30,8 @@
           <li>{{ section }}</li>
         </ul>
       </div>
+      </transition>
+      
 
       <div
         class="col-md-2  d-flex justify-content-around p-5 mt-4"
@@ -224,6 +229,26 @@ button {
 @media screen and (max-width: 425px) {
   .main {
     margin-top: 150px;
+  }
+}
+
+.fade-enter-active{
+  animation: fade 0.5s ease-in;
+}
+
+/* .fade-enter-active{
+  animation: fade 0.5s ease-in reverse;
+} */
+
+@keyframes fade {
+  0%{
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  100%{
+    opacity: 0;
+    transform: scale(1);
   }
 }
 </style>
